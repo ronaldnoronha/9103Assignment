@@ -1,0 +1,28 @@
+add mobile 01022211; name Poseph12 Bloggs;
+
+add mobile 001223456; name Linda Evans; birthday 1-1-2013; address 1 Grace Street, Lane Cove, NSW, 2066
+
+add mobile 0df22215; name Linda Evans; address 1 Grace Street, Lane Cove, NSW, 2066;
+
+add mobile 03222215; name Linda Evans; address 1 Grace Street, Lane Cove, NSW, 2a66;
+
+
+add mobile 00121212; name William12 Hill; birthday 1-1-2013
+add mobile 10101233; name William Hill; birthday 30-2-2013
+
+
+add mobile 00111233; name Tom Swift; birthday 1-1-2013; address 12 Campus Street, Darlington, NSW, 2008
+add mobile 13101132; name Thomas Swan; fee $25; pass Silver
+
+add name Posephine Bloggs; mobile 01122211; fee $35; pass Gold
+
+add mobile 13101132; name Thomas Swan; fee $50; pass Gold; address 2 Campus Street, Sydney, NSW, 2000
+
+delete James Bond; 12345678
+delete Posephine Bloggs; 55552221
+
+add name Posephine Bloggs; mobile 00550001; pass Silver
+
+add mobile 00550001; name Chris Update; fee $50
+
+

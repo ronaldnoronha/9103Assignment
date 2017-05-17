@@ -1,0 +1,32 @@
+name Posephine Bloggs
+mobile 01122211
+
+name Linda Evans
+birthday 1/1/2013
+mobile 001223456
+address  Grace Street, Lane Cove, NSW, 2066
+
+name Linda Evans
+mobile 03222215
+address  Grace Street, Lane Cove, NSW, 2a66
+
+name William Hill
+birthday 30/2/2013
+mobile 10101233
+
+name Tom Swift
+birthday 1/1/2013
+mobile 00111233
+address 2 Campus Street, Darlington, NSW, 2008
+
+name Thomas Swan
+mobile 13101132
+fee $25.00
+
+name Posephine Bloggs
+mobile 00550001
+
+name Chris Update
+mobile 00550001
+fee $50.00
+
