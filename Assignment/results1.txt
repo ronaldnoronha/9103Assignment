@@ -1,0 +1,36 @@
+name Posephine Bloggs
+birthday 1/6/1980
+mobile 02111111
+fee $10.00
+address 1 Grace Street, Lane Cove, NSW, 2066
+
+name Durant Davis
+birthday 1/6/1960
+mobile 00011111
+
+name Posephine Esmerelda Bloggs
+birthday 13/5/1960
+mobile 11222009
+address 102 Smith St, Summer hill, NSW 2130
+
+name Patricia Davies
+birthday 3/6/2008
+mobile 00220000
+address 61 Gibbes St, Rockdale, NSW 2216
+
+name Jennifer Lewis
+birthday 31/1/1988
+mobile 01112100
+
+name Mary Brown
+mobile 10001110
+
+name Linda Evans
+birthday 2/6/1980
+mobile 08100013
+
+name Linda Evans
+birthday 3/6/2008
+mobile 10001166
+address 9003 Chester Crescent, Chatswood, NSW 20a7
+
