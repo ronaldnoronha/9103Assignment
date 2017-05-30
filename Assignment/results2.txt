@@ -1,69 +1,31 @@
 name Posephine Bloggs
-birthday 1/6/1980
-mobile 02111111
-fee $10.00
-address  Grace Street, Lane Cove, NSW, 2066
+mobile 01122211
+pass Gold
+fee $35.00
 
-name Durant Davis
-birthday 1/6/1960
-mobile 00011111
-
-name Posephine Esmerelda Bloggs
-birthday 13/5/1960
-mobile 11222009
-address 02 Smith St, Summer hill, NSW 2130
-
-name Patricia Davies
-birthday 3/6/2008
-mobile 00220000
-address 1 Gibbes St, Rockdale, NSW 2216
-
-name Jennifer Lewis
-birthday 31/1/1988
-mobile 01112100
-
-name Mary Brown
-mobile 10001110
-
-name Linda Evans
-birthday 2/6/1980
-mobile 08100013
-
-name Linda Evans
-birthday 3/6/2008
-mobile 10001166
-address 003 Chester Crescent, Chatswood, NSW 20a7
-
-name Linda Evans
-birthday 1/1/2013
-mobile 001223456
-address  Grace Street, Lane Cove, NSW, 2066
+name Chris Update
+birthday 21/10/1998
+mobile 00550001
+fee $50.00
 
 name Linda Evans
 mobile 03222215
-address  Grace Street, Lane Cove, NSW, 2a66
 
 name William Hill
-birthday 30/2/2013
 mobile 10101233
 
 name Tom Swift
-birthday 1/1/2013
+birthday 01/01/2013
 mobile 00111233
-address 2 Campus Street, Darlington, NSW, 2008
+address 12 Campus Street, Darlington, NSW, 2008
 
 name Thomas Swan
 mobile 13101132
-fee $25.00
-
-name Posephine Bloggs
-mobile 01122211
-fee $35.00
-
-name Posephine Bloggs
-mobile 00550001
-
-name Chris Update
-mobile 00550001
+pass Gold
 fee $50.00
+address 2 Campus Street, Sydney, NSW, 2000
+
+name Posephine Bloggs
+mobile 00550001
+pass Silver
 

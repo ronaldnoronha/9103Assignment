@@ -2,16 +2,15 @@
 
 public class Member {
 	private String name;
-	private String birthday;
+	private String birthday = "";
 	private String mobile;
-	private String passtype;
-	private double fee;
-	private String address;
-	
+	private String passtype = "";
+	private double fee = 0;
+	private String address="";
+	private String email = "";
 	public Member(String nm, String phone){
 		name = nm;
 		mobile = phone;
-		birthday = "";
 	}
 	public Member(String nm, String bd, String phone, String pass, double cost){
 		name = nm;
@@ -32,7 +31,9 @@ public class Member {
 	public void addPass(String pass){
 		passtype = pass;
 	}
-	
+	public void addEmail(String e_address){
+		email = e_address;
+	}
 	
 	public String getName(){
 		return name;
@@ -52,6 +53,7 @@ public class Member {
 	public String getAddress(){
 		return address;
 	}
-	
-
+	public String getEmail(){
+		return email;
+	}
 }
