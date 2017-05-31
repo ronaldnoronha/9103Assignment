@@ -106,6 +106,7 @@ public class Club {
 	}
 
 	private static int higherIndex(Member a, Member b){
+		// Output is 0 if both are equal, 1 if first member is higher, 2 if second member is higher
 		//higher of the two inputs. 
 		String name1 = a.getName();
 		String name2 = b.getName();

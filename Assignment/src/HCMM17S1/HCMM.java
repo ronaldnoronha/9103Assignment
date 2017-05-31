@@ -79,15 +79,16 @@ public class HCMM {
 			}
 			memberslist.close();
 			instructions.close();
-			if (output_reports.size()>0){
-				File fw3 = new File(args[3]);
-				PrintWriter report = new PrintWriter(fw3);
+			Club.createResultsFile(args[2]);
+			File fw3 = new File(args[3]);
+			PrintWriter report = new PrintWriter(fw3);
+			if (output_reports.size()>0){				
 				for (int i = 0; i<output_reports.size();i++){
 					report.println(output_reports.get(i));
-				}
-				report.close();
+				}				
 			}
-			Club.createResultsFile(args[2]);
+			report.close();
+			
 
 		}
 		catch (Exception e){
@@ -216,8 +217,7 @@ public class HCMM {
 		String address = "";
 		String fee = "";
 		String pass ="";
-		String email = "";
-		boolean run_thru = true;
+		String email = "";		
 		boolean keyword_found = false;
 		String last_keyword = "";
 		int i =0;
@@ -388,6 +388,5 @@ public class HCMM {
 		name = list[0].trim();
 		mobile = list[1].trim();
 		Club.deleteFromClub(name, mobile);
-
 	}
 }

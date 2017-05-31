@@ -12,12 +12,14 @@ public class Member {
 		name = nm;
 		mobile = phone;
 	}
-	public Member(String nm, String bd, String phone, String pass, double cost){
+	public Member(String nm, String bd, String phone, String pass, double cost, String add_ress ,String email_add){
 		name = nm;
 		birthday = bd;
 		mobile = phone;
 		passtype = pass;
 		fee = cost;
+		address = add_ress;
+		email = email_add;
 	}
 	public void addBirthday(String birth){
 		birthday = birth;

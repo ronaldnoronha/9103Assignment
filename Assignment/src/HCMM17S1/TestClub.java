@@ -49,7 +49,7 @@ public class TestClub {
 			System.out.println("error: "+e.getMessage());
 		}		
 
-
+		Club.deleteAll();
 
 
 
