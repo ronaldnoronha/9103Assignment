@@ -1,3 +1,4 @@
+package HCMM17S1;
 import java.util.*;
 import java.io.*;
 public class Club {
@@ -24,12 +25,12 @@ public class Club {
 				out.println("mobile "+ListOfMembers.get(i).getMobile());				
 				if (!ListOfMembers.get(i).getPassType().isEmpty()) out.println("pass "+ListOfMembers.get(i).getPassType());				
 				if (ListOfMembers.get(i).getFee()>0){					
-					out.printf("fee $%5.2f",ListOfMembers.get(i).getFee());					
+					out.printf("fee $%.2f",ListOfMembers.get(i).getFee());					
 					out.println();
 				}
 				if (!ListOfMembers.get(i).getAddress().isEmpty()) out.println("address "+ListOfMembers.get(i).getAddress());
 				if (!ListOfMembers.get(i).getEmail().isEmpty()) out.println("email "+ListOfMembers.get(i).getEmail());
-				out.println();
+				if (i!=ListOfMembers.size()-1) out.println();
 			}
 			out.close();
 		} catch (Exception e){
@@ -159,19 +160,48 @@ public class Club {
 		}
 		return output;
 	}
-	public static ArrayList<String> queryPassAge(){
-		ArrayList<String> output = new Arraylist<String>();
+	public static ArrayList<String> queryAge(){
+		ArrayList<String> output = new ArrayList<String>();
 		output.add("----query age fee----");
 		output.add("Total Club Member size: "+ListOfMembers.size());
 		output.add("Age based fee income distribution");
+		double under8 = 0;
+		double under18 = 0;
+		double under65 = 0;
+		double seniors = 0;
+		double unknown = 0;
 		for (int i=0;i<ListOfMembers.size();i++){
-			
+			// get bd and calculate age
+			if (ageInYears(ListOfMembers.get(i).getBirthday())==-1){
+				unknown+=ListOfMembers.get(i).getFee();
+			}
+			else if (ageInYears(ListOfMembers.get(i).getBirthday())<=8){
+				under8+=ListOfMembers.get(i).getFee();
+			}
+			else if (ageInYears(ListOfMembers.get(i).getBirthday())<=18){
+				under18+=ListOfMembers.get(i).getFee();
+			}
+			else if (ageInYears(ListOfMembers.get(i).getBirthday())<=65){
+				under65+=ListOfMembers.get(i).getFee();
+			}
+			else if (ageInYears(ListOfMembers.get(i).getBirthday())>65){
+				seniors+=ListOfMembers.get(i).getFee();
+			}			
 		}
-		
-		
+		output.add("(0,8]: $"+String.format("%.2f",under8));
+		output.add("(8,18]: $"+String.format("%.2f",under18));
+		output.add("(18,65]: $"+String.format("%.2f",under65));
+		output.add("(65,-): $"+String.format("%.2f",seniors));
+		output.add("Unknown: $"+String.format("%.2f",unknown));
+		output.add("---------------------");
+		return output;
+
 	}
 	public static int ageInYears(String bd){
 		int age;
+		if (bd.isEmpty()){
+			return -1;
+		}
 		Date today = new Date();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(today);
@@ -181,7 +211,6 @@ public class Club {
 		int bd_month = Integer.parseInt(bd.substring(3,5));
 		int bd_day = Integer.parseInt(bd.substring(0,2));
 		int bd_year = Integer.parseInt(bd.substring(6,10));
-		System.out.println(bd_year);
 		if (t_year!=bd_year) {
 			if ((t_month>bd_month) || (t_day==bd_day && t_day>bd_day)) {
 				age = t_year-bd_year;
@@ -196,6 +225,42 @@ public class Club {
 			age = 0;
 			return age;
 		}		
+	}
+	public static ArrayList<String> queryPass(String pass){
+		ArrayList<String> output = new ArrayList<String>();
+		ArrayList<Member> shortlist = new ArrayList<Member>();
+		for (int i=0;i<ListOfMembers.size();i++){
+			if (ListOfMembers.get(i).getPassType().equals(pass)){
+				shortlist.add(ListOfMembers.get(i));
+			}
+		}
+		if (shortlist.size()>1){
+			for (int i =1;i<shortlist.size();i++){
+				Member temp  = shortlist.get(i);
+				int loc = i-1;
+				while (loc>=0 && higherIndex(shortlist.get(loc),temp)==1){
+					shortlist.set(loc+1,shortlist.get(loc));
+					loc--;
+				}
+				shortlist.set(loc+1,temp);
+			}
+		}
+		double sum = 0;
+		output.add("----query pass "+pass+"----");
+		for (int i =0;i<shortlist.size();i++){ 
+			output.add("name "+shortlist.get(i).getName());
+			if(!shortlist.get(i).getBirthday().isEmpty()) output.add("birthday "+shortlist.get(i).getBirthday());
+			output.add("mobile "+shortlist.get(i).getMobile());
+			if(!shortlist.get(i).getPassType().isEmpty()) output.add("pass "+shortlist.get(i).getPassType());
+			if(shortlist.get(i).getFee()!=0) output.add("fee $"+String.format("%.2f",shortlist.get(i).getFee()));
+			sum+=shortlist.get(i).getFee();
+			if(!shortlist.get(i).getAddress().isEmpty()) output.add("pass "+shortlist.get(i).getAddress());
+			if(!shortlist.get(i).getEmail().isEmpty()) output.add("pass "+shortlist.get(i).getEmail());
+			output.add("");
+		}
+		output.add("Total Fee: $"+String.format("%.2f", sum));
+		output.add("-------------------------");
+		return output;
 	}
 
 }

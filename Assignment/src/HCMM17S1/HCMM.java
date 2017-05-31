@@ -1,3 +1,4 @@
+package HCMM17S1;
 import java.util.*;
 import java.io.*;
 
@@ -9,11 +10,11 @@ public class HCMM {
 			// Clearing the clublist before each run
 			Club.deleteAll();
 			// Opening the members and instructions files
-			File fw1 = new File(args[0]+".txt");
-			File fw2 = new File(args[1]+".txt");
+			File fw1 = new File(args[0]);
+			File fw2 = new File(args[1]);
 			Scanner memberslist = new Scanner(fw1);
 			Scanner instructions = new Scanner(fw2);
-
+			ArrayList<String> output_reports = new ArrayList<String>();
 			// Variables for reading and writing methods
 			String line_read;
 			String word;
@@ -54,11 +55,39 @@ public class HCMM {
 					else if (order.equals("descending")){					
 						Club.sortDescending();
 					}
-				}			
+				}
+				// testing 
+				else if (word.equals("query")){
+					String order = instructions.next().trim();
+					if (order.equals("pass")){
+						ArrayList<String> temp = Club.queryPass(instructions.next().trim());
+						for (int i=0;i<temp.size();i++){
+							output_reports.add(temp.get(i));
+						}
+						output_reports.add("");
+					}
+					else if (order.equals("age")){
+						if (instructions.next().trim().equals("fee")){
+							ArrayList<String> temp = Club.queryAge();
+							for (int i=0;i<temp.size();i++){
+								output_reports.add(temp.get(i));
+							}
+							output_reports.add("");
+						}
+					}
+				}
 			}
 			memberslist.close();
 			instructions.close();
-			Club.createResultsFile(args[2]+".txt");
+			if (output_reports.size()>0){
+				File fw3 = new File(args[3]);
+				PrintWriter report = new PrintWriter(fw3);
+				for (int i = 0; i<output_reports.size();i++){
+					report.println(output_reports.get(i));
+				}
+				report.close();
+			}
+			Club.createResultsFile(args[2]);
 
 		}
 		catch (Exception e){
@@ -164,7 +193,16 @@ public class HCMM {
 		}
 		return output;
 	}
-
+	public static boolean validEmail(String email){
+		// checks if email has an '@' sign and following @ atleast 1 character further in the string there is a '.'
+		boolean output = false;
+		if (email.contains("@")){
+			if(email.substring(email.indexOf('@')+1,email.length()).contains(".")){
+				output = true;
+			}
+		}
+		return output;
+	}
 	public static void convertMemberString(String line){		
 		String[] list = line.trim().split(" ");
 		for (int i=0;i<list.length;i++){
@@ -315,7 +353,7 @@ public class HCMM {
 			}
 			if (!address.isEmpty() && validAddress(address)) to_add.addAddress(address);
 			if (!pass.isEmpty() && validPass(pass)) to_add.addPass(pass);
-			if (!email.isEmpty()) to_add.addEmail(email);
+			if (!email.isEmpty() && validEmail(email)) to_add.addEmail(email);
 			Club.addToClub(to_add); 
 		}
 		// If already a member then update details

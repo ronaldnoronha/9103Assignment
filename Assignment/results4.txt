@@ -20,7 +20,7 @@ name Julia Charsley
 birthday 01/02/2012
 mobile 00145800
 pass Gold
-fee $ 5.00
+fee $5.00
 
 name Tom White
 birthday 14/12/1987
@@ -54,4 +54,3 @@ name Julia Charsley
 mobile 02300000
 pass Silver
 fee $10.00
-

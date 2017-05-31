@@ -1,4 +1,4 @@
-//import java.util.*;
+package HCMM17S1;
 
 public class Member {
 	private String name;
